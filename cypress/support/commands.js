@@ -47,9 +47,19 @@ Cypress.Commands.add("loginWithTestUser", () => {
     cy.login(user.email, Cypress.env("password"));
   });
 });
+Cypress.Commands.add("logout", () => {
+  cy.get("button[data-auth=logout]").click();
+  cy.wait(500);
+});
 
 Cypress.Commands.add("isLoggedIn", () => {
   cy.window().then((win) => {
     expect(win.localStorage.getItem("token")).to.be.a("string");
+  });
+});
+
+Cypress.Commands.add("isLoggedOut", () => {
+  cy.window().then((win) => {
+    expect(win.localStorage.getItem("token")).to.be.null;
   });
 });
