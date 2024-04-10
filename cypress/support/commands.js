@@ -38,6 +38,7 @@ Cypress.Commands.add("showLoginForm", () => {
 Cypress.Commands.add("login", (email, password) => {
   cy.get("#loginForm").find("input[name=email]").type(email);
   cy.get("#loginForm").find("input[name=password]").type(password);
+  cy.wait(1500);
   cy.get("#loginForm").find("button[type=submit]").click();
   cy.wait(1500);
 });
@@ -47,6 +48,7 @@ Cypress.Commands.add("loginWithTestUser", () => {
     cy.login(user.email, Cypress.env("password"));
   });
 });
+
 Cypress.Commands.add("logout", () => {
   cy.get("button[data-auth=logout]").click();
   cy.wait(500);
@@ -61,5 +63,19 @@ Cypress.Commands.add("isLoggedIn", () => {
 Cypress.Commands.add("isLoggedOut", () => {
   cy.window().then((win) => {
     expect(win.localStorage.getItem("token")).to.be.null;
+  });
+});
+
+Cypress.Commands.add("loginWithInvalidUser", () => {
+  cy.fixture("example").then((user) => {
+    cy.login(user.email, "invalidPassword");
+  });
+});
+
+Cypress.Commands.add("assertAlertVisible", () => {
+  cy.on("window:alert", (text) => {
+    expect(text).to.contain(
+      "Either your username was not found or your password is incorrect",
+    );
   });
 });
