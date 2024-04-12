@@ -7,7 +7,7 @@
     "lint": "eslint **/*.js",
     "build": "sass src/scss:dist/css",
     "serve": "live-server &",
-    "start": "npm run build && npm run serve &",
+    "start": "npm run build & npm run serve &",
     "watch": "sass --watch src/scss:dist/css",
     "format": "prettier --write **/*.js",
     "prepare": "husky install",
