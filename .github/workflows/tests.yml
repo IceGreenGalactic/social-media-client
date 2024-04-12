@@ -4,9 +4,13 @@ name: Run Tests
 on:
   # Runs on pushes to branches and pull requests targeting the default branch
   push:
-    branches: ["master"]
+    branches:
+      - master
+      - workflow
   pull_request:
-    branches: ["master"]
+    branches:
+      - master
+      - workflow
 
 jobs:
   # Job for running unit tests with Jest
@@ -15,7 +19,7 @@ jobs:
     name: Run Unit Tests
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: npm ci
@@ -35,7 +39,7 @@ jobs:
         run: npm ci
 
       - name: Start server (if needed)
-        run: npm start
+        run: npm run serve
 
       - name: Run end-to-end tests with Cypress
         run: npm run test-e2e
