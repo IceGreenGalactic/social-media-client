@@ -4,11 +4,9 @@ name: Run Tests
 on:
   # Runs on pushes to branches and pull requests targeting the default branch
   push:
-    branches:
-      - main
+    branches: ["master"]
   pull_request:
-    branches:
-      - main
+    branches: ["master"]
 
 jobs:
   # Job for running unit tests with Jest
