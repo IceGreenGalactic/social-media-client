@@ -10,6 +10,19 @@ This project aims to elevate the development process and maintain code quality i
 - Testing: end-to-end testing covering  functionalities such as login/logout processes with valid and invalid credentials. 
 
 
+ # Github Actions
+ These workflows are automatically triggered on pushes to the `master` or `workflow` branches and on pull requests targeting those branches.
+
+
+- **Deploy static content to Github Pages**: This workflow deploys static content to Github Pages automatically.
+- **Automated unit testing**: This workflow runs automated unit tests automatically.
+- **Automated end-to-end testing**: This workflow runs automated end-to-end tests automatically.
+
+##### Status
+##### Status
+[![Deploy static content to Pages](https://github.com/IceGreenGalactic/social-media-client/actions/workflows/pages.yml/badge.svg)](https://github.com/IceGreenGalactic/social-media-client/actions/workflows/pages.yml) [![Run unit-tests](https://github.com/IceGreenGalactic/social-media-client/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/IceGreenGalactic/social-media-client/actions/workflows/unit_tests.yml) [![Run e2e-tests](https://github.com/IceGreenGalactic/social-media-client/actions/workflows/e2e_tests.yml/badge.svg)](https://github.com/IceGreenGalactic/social-media-client/actions/workflows/e2e_tests.yml)
+
+
 ## Getting Started
 
 ### Prerequisites
@@ -40,12 +53,8 @@ This will launch a live server for development:
 npm  start
 ```
 
-# Testing
 
-Tests are run automatically when a pull request is created.
-##### Test status
-[![Run Tests](https://github.com/IceGreenGalactic/social-media-client/actions/workflows/tests.yml/badge.svg)](https://github.com/IceGreenGalactic/social-media-client/actions/workflows/unit_tests.yml)
-[![Run Tests](https://github.com/IceGreenGalactic/social-media-client/actions/workflows/tests.yml/badge.svg)](https://github.com/IceGreenGalactic/social-media-client/actions/workflows/e2e_tests.yml)
+# Testing
 #### To run Jest and Cypress tests, use the following command:
 ```bash
 npm run test
