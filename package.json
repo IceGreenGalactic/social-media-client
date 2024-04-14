@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint **/*.js",
     "build": "sass src/scss:dist/css",
-    "start": "live-server & sass --watch src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css",
+    "start": "live-server",
     "format": "prettier --write **/*.js",
     "prepare": "husky install",
     "test": "npm run test:unit && npm run test-e2e-cli",
