@@ -5,11 +5,11 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches:
-      - master,
+      - master
       - workflow
   pull_request:
     branches:
-      - master,
+      - master
       - workflow
 
   # Allows you to run this workflow manually from the Actions tab
