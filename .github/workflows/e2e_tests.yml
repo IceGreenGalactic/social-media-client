@@ -1,0 +1,32 @@
+# Workflow for running tests using Jest and Cypress
+name: e2e Test
+
+on:
+  # Runs on pushes to branches and pull requests targeting the default branch
+      push:
+        branches:
+          - master,
+          - workflow
+      pull_request:
+        branches:
+          - master,
+          - workflow
+jobs:
+# Job for running end-to-end tests with Cypress
+  e2e_tests:
+    runs-on: ubuntu-latest
+    name: Run End-to-End Tests
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Start server (if needed)
+        run: npm start
+
+      - name: Run end-to-end tests with Cypress
+        env:
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+        run: npm run test-e2e-cli
